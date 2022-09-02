@@ -12,13 +12,13 @@ namespace Core.DataAccess.EntityFramework
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
-    {
+    { 
         public void Add(TEntity entity)
         {
             //IDisposable pattern implementation of c# ---- garbage collector
             using (TContext context = new TContext())
             {
-                var addedEntity = context.Entry(entity);
+                var addedEntity = context.Entry(entity); 
                 addedEntity.State = Microsoft.EntityFrameworkCore.EntityState.Added;
                 context.SaveChanges();
             }

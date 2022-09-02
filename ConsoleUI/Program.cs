@@ -4,12 +4,30 @@ using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 
 //CustomerManagerTest();
-
 //ProductDtoTest();
+ProductTest();
+
+
+static void ProductTest()
+{
+    ProductManager product = new ProductManager(new EfProductDal());
+    var result = product.GetAll();
+    if (result.Success)
+    {
+        foreach (var p in result.Data)
+        {
+            Console.WriteLine(p.ProductName);
+        }
+        Console.WriteLine(result.Message);
+    }
+    else Console.WriteLine(result.Message);
+    
+}
+
 
 static void CustomerManagerTest()
 {
-    CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+    CustomerManager customerManager = new CustomerManager(new EfCustomerDal()); 
 
     foreach (var customer in customerManager.GetAll())
     {
@@ -20,9 +38,12 @@ static void CustomerManagerTest()
 static void ProductDtoTest()
 {
     ProductManager testProductDto = new ProductManager(new EfProductDal());
-
-    foreach (var detail in testProductDto.GetProductDetails())
+    var result = testProductDto.GetProductDetails();
+    if (result.Success)
     {
-        Console.WriteLine("{0}/{1}/{2}", detail.CategoryName, detail.ProductName, detail.UnitsInStock);
+        foreach (var detail in result.Data)
+        {
+            Console.WriteLine("{0}/{1}/{2}", detail.CategoryName, detail.ProductName, detail.UnitsInStock);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Business.Abstract
 {
     public interface ICustomerService
     {
-        List<Customer> GetAll();
+        List<Customer> GetAll(); 
 
         Customer GetById(string id);
     }
