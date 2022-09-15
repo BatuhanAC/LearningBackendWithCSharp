@@ -8,9 +8,12 @@ namespace Business.Constants
 {
     public static class Messages
     {
-        public static string ProductAdded = "Ürün Eklendi";
-        public static string ProductNameInvalid = "Ürün İsmi Geçersiz";
-        public static string MaintenanceTime = "Sistem Bakımda";
-        public static string Listed = "Ürünler Listelendi";
+        public static string ProductAdded = "Ürün eklendi.";
+        public static string ProductNameInvalid = "Ürün ismi geçersiz.";
+        public static string MaintenanceTime = "Sistem bakımda.";
+        public static string Listed = "Ürünler listelendi.";
+        public static string ProductCountOfCategoryError = "Aynı kategoride 10'dan fazla ürün bulunamaz.";
+        public static string ProductNameAlreadyExist = "Bu isimli ürün zaten bulunmakta.";
+        public static string CategoryLimitExceded = "Kategori sayısı 15'i aşamaz!";
     }
 }

@@ -10,7 +10,7 @@ ProductTest();
 
 static void ProductTest()
 {
-    ProductManager product = new ProductManager(new EfProductDal());
+    ProductManager product = new ProductManager(new EfProductDal(), new CategoryManager(new EfCategoryDal()));
     var result = product.GetAll();
     if (result.Success)
     {
@@ -37,7 +37,7 @@ static void CustomerManagerTest()
 
 static void ProductDtoTest()
 {
-    ProductManager testProductDto = new ProductManager(new EfProductDal());
+    ProductManager testProductDto = new ProductManager(new EfProductDal(), new CategoryManager(new EfCategoryDal()));
     var result = testProductDto.GetProductDetails();
     if (result.Success)
     {
